@@ -8,17 +8,20 @@ import pandas as pd
 
 
 # --- 1. DATABASE CONNECTION ---
+###################################################################################################
 def connect_to_sheet():
     SHEET_NAME = "Library_Booking_DB"
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
     try:
-        creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
+        # This tells the app to look in the Secrets vault we just filled!
+        creds_info = st.secrets["gspread_creds"]
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_info, scope)
         client = gspread.authorize(creds)
         return client.open(SHEET_NAME).sheet1
     except Exception as e:
         st.error(f"Connection Error: {e}")
         return None
-
+############################################################################################
 
 def generate_booking_id():
     return "BOK-" + ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
