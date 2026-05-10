@@ -57,6 +57,35 @@ with st.sidebar:
 
     st.divider()
     st.caption("Developed for PTES Community © 2026")
+    
+#--- FOOTER  ---#
+# --- PTES FOOTER IN SIDEBAR ---
+    st.divider()
+    
+    # Custom CSS for the shapes and text
+    st.markdown("""
+        <style>
+        .footer-line {
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .dev-line {
+            font-size: 11px;
+            text-align: center;
+            color: #888;
+        }
+        </style>
+        
+        <div class="footer-line">
+            🟥 Perseverance &nbsp; 🟢 Trustworthiness &nbsp; 🔵 Exemplary &nbsp; 🟡 Self-reliance &nbsp; ⬜
+        </div>
+        <div class="dev-line">
+            Web Developer: Miss Hjh Nurul Haziqah HN (Computer Science)
+        </div>
+    """, unsafe_allow_html=True)
+######################################################################################
 
 # --- 4. MAIN CONTENT ---
 st.title("📚 Library Discussion Room Booking System")
@@ -143,3 +172,4 @@ with tab3:
                     st.success(f"Successfully deleted booking {cancel_id}!")
                 else:
                     st.error("Booking ID not found.")
+
