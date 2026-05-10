@@ -130,7 +130,7 @@ with tab2:
 with tab3:
     st.subheader("Admin Control Panel")
     admin_pass = st.text_input("Enter Admin Password", type="password")
-    if admin_pass == "admin123":
+    if admin_pass == st.secrets["admin_password"]:
         st.divider()
         st.write("### 🗑️ Cancel a Booking")
         cancel_id = st.text_input("Enter Booking ID to Delete")
