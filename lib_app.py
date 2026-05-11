@@ -58,8 +58,6 @@ with st.sidebar:
     st.divider()
     st.caption("Developed for PTES Community © 2026")
     
-######################################################################################
-
 # --- 4. MAIN CONTENT ---
 st.title("📚 Library Discussion Room Booking System")
 tab1, tab2, tab3 = st.tabs(["📅 Reserve a Room", "📋 Booking Schedule", "🔐 Admin Management"])
@@ -147,7 +145,7 @@ with tab3:
                     st.error("Booking ID not found.")
 
 # --- PTES FOOTER IN SIDEBAR ---
-st.divider()
+# st.divider()
     
 # Custom CSS for the shapes and text
 st.markdown("""
