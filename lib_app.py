@@ -71,10 +71,10 @@ tab1, tab2, tab3 = st.tabs(["📅 Reserve a Room", "📋 Booking Schedule", "�
 with tab1:
     st.subheader("New Reservation Form")
     room_data = {
-        "Room 1 (Level 1)": {"capacity": 17},
-        "Room 2 (Level 1)": {"capacity": 11},
-        "Room 3 (Level 2)": {"capacity": 10},
-        "Room 4 (Level 2)": {"capacity": 18}
+        "Room 1 (Level 2)": {"capacity": 17},
+        "Room 2 (Level 2)": {"capacity": 11},
+        "Room 3 (Level 3)": {"capacity": 10},
+        "Room 4 (Level 3)": {"capacity": 18}
     }
     time_slots = ["07:45 - 08:45", "08:45 - 09:45", "09:45 - 10:10", "10:10 - 11:10", "11:10 - 12:10", "13:20 - 14:20",
                   "14:20 - 15:20", "15:20 - 16:00"]
