@@ -40,6 +40,7 @@ with st.sidebar:
     1. Fill in your details in the 'Reserve' tab.
     2. Save your **Booking ID**.
     3. Check the 'Schedule' to confirm.
+    4. Only The Librarian can DELETE bookings.
     """)
 
     st.divider()
@@ -147,11 +148,11 @@ with tab3:
 
 # --- PTES FOOTER IN SIDEBAR ---
 st.divider()
-st.warning("⚖️ **SCHOOL HOLIDAYS: Discussion rooms reservation are between 08:00 to 11:00.** 👨‍🏫")   
+st.warning("⚖️ **SCHOOL HOLIDAYS: The Library Discussion rooms reservation are between 08:00 to 11:00 only** 👨‍🏫")   
 # Custom CSS for the shapes and text
 st.markdown("""
     <style>
-    .footer-line {
+    .footer-line 
         font-size: 12px;
         font-weight: bold;
         text-align: center;
