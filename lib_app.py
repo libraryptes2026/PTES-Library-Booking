@@ -56,7 +56,7 @@ with st.sidebar:
     """)
 
     st.divider()
-    st.caption("Developed for PTES Community © 2026")
+    st.caption("Developer: Hjh Nurul Haziqah for PTES Community © 2026")
     
 # --- 4. MAIN CONTENT ---
 st.title("📚 Library Discussion Room Booking System")
@@ -75,7 +75,8 @@ with tab1:
         "Room 4 (Level 3)": {"capacity": 18}
     }
     time_slots = ["07:45 - 08:45", "08:45 - 09:45", "09:45 - 10:10", "10:10 - 11:10", "11:10 - 12:10", "13:20 - 14:20",
-                  "14:20 - 15:20", "15:20 - 16:00", "07:45-08:30 (Ramadhan)", "08:35-09:20 (Ramadhan)", "09:25-10:10 (Ramadhan)", "10:25-11:10 (Ramadhan)", "11:15-12:00 (Ramadhan)"]
+                  "14:20 - 15:20", "15:20 - 16:00", "07:45-08:30 (Ramadhan)", "08:35-09:20 (Ramadhan)", "09:25-10:10 (Ramadhan)",
+                  "10:25-11:10 (Ramadhan)", "11:15-12:00 (Ramadhan)"]
 
     with st.form("booking_form", clear_on_submit=True):
         c1, c2 = st.columns(2)
@@ -167,6 +168,6 @@ st.markdown("""
         🟥 Perseverance &nbsp; 🟢 Trustworthiness &nbsp; 🔵 Exemplary &nbsp; 🟡 Self-reliance &nbsp; ⬜
     </div>
     <div class="dev-line">
-        Web Developer: Miss Hjh Nurul Haziqah HN (Computer Science)
+        SCHOOL HOLIDAYS: Discussion rooms reservation are between 08:00 to 11:00.
     </div>
 """, unsafe_allow_html=True)
