@@ -52,11 +52,11 @@ with st.sidebar:
     * 🔑 **Access:** The lecturer is responsible for collecting the key from the counter and returning it immediately after use.
     * 🧹 **Cleanliness:** Ensure the room is tidy and whiteboards are cleared before leaving.
     * 🤫 **Silence:** While rooms are sound-proofed, please maintain a reasonable volume. Silence in the library vicinity is a top priority.
-    * 🚫 **Food:** No food or drinks allowed inside the discussion rooms.
+    * 🚫 **No Food:** Only drinks allowed inside the discussion rooms.
     """)
 
     st.divider()
-    st.caption("Developer: Hjh Nurul Haziqah for PTES Community © 2026")
+    st.caption("Developer: Hjh Nurul Haziqah for PTES Lecturers & Community © 2026")
     
 # --- 4. MAIN CONTENT ---
 st.title("📚 Library Discussion Room Booking System")
@@ -167,7 +167,10 @@ st.markdown("""
     <div class="footer-line">
         🟥 Perseverance &nbsp; 🟢 Trustworthiness &nbsp; 🔵 Exemplary &nbsp; 🟡 Self-reliance &nbsp; ⬜
     </div>
+    st.write("""
+        * 👨‍🏫 **SCHOOL HOLIDAYS: Discussion rooms reservation are between 08:00 to 11:00.**
+        """)    
     <div class="dev-line">
-        SCHOOL HOLIDAYS: Discussion rooms reservation are between 08:00 to 11:00.
+        "PORTAL DEVELOPER : Miss Hajah Nurul Haziqah binti Haji Nordin (Computer Science Tutor)"
     </div>
 """, unsafe_allow_html=True)
