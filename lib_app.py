@@ -146,8 +146,8 @@ with tab3:
                     st.error("Booking ID not found.")
 
 # --- PTES FOOTER IN SIDEBAR ---
-# st.divider()
- st.warning("⚖️ **SCHOOL HOLIDAYS: Discussion rooms reservation are between 08:00 to 11:00.** 👨‍🏫")   
+st.divider()
+st.warning("⚖️ **SCHOOL HOLIDAYS: Discussion rooms reservation are between 08:00 to 11:00.** 👨‍🏫")   
 # Custom CSS for the shapes and text
 st.markdown("""
     <style>
