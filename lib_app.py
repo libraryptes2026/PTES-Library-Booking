@@ -168,8 +168,9 @@ st.markdown("""
         🟥 Perseverance &nbsp; 🟢 Trustworthiness &nbsp; 🔵 Exemplary &nbsp; 🟡 Self-reliance &nbsp; ⬜
     </div>
     st.write("""
-        * 👨‍🏫 **SCHOOL HOLIDAYS: Discussion rooms reservation are between 08:00 to 11:00.**
-        """)    
+    👨‍🏫 **SCHOOL HOLIDAYS: Discussion rooms reservation are between 08:00 to 11:00.**
+    """)    
+    
     <div class="dev-line">
         "PORTAL DEVELOPER : Miss Hajah Nurul Haziqah binti Haji Nordin (Computer Science Tutor)"
     </div>
