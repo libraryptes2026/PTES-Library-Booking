@@ -56,7 +56,7 @@ with st.sidebar:
     """)
 
     st.divider()
-    st.caption("Developer: Hjh Nurul Haziqah for PTES Lecturers & Community © 2026")
+    st.caption("Developed for PTES Lecturers©2026")
     
 # --- 4. MAIN CONTENT ---
 st.title("📚 Library Discussion Room Booking System")
@@ -147,7 +147,7 @@ with tab3:
 
 # --- PTES FOOTER IN SIDEBAR ---
 # st.divider()
-    
+ st.warning("⚖️ **SCHOOL HOLIDAYS: Discussion rooms reservation are between 08:00 to 11:00.** 👨‍🏫")   
 # Custom CSS for the shapes and text
 st.markdown("""
     <style>
@@ -167,10 +167,7 @@ st.markdown("""
     <div class="footer-line">
         🟥 Perseverance &nbsp; 🟢 Trustworthiness &nbsp; 🔵 Exemplary &nbsp; 🟡 Self-reliance &nbsp; ⬜
     </div>
-    st.write("""
-    👨‍🏫 **SCHOOL HOLIDAYS: Discussion rooms reservation are between 08:00 to 11:00.**
-    """)    
-    
+   
     <div class="dev-line">
         "PORTAL DEVELOPER : Miss Hajah Nurul Haziqah binti Haji Nordin (Computer Science Tutor)"
     </div>
