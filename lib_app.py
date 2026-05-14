@@ -150,16 +150,19 @@ with tab3:
 st.divider()
 st.warning("⚖️ **SCHOOL HOLIDAYS: The Library Discussion rooms reservation are between 08:00 to 11:00 only** 👨‍🏫")   
 # Custom CSS for the shapes and text
+st.divider()
+
+
 st.markdown("""
     <style>
-    .footer-line 
-        font-size: 12px;
+    .footer-line {
+        font-size: 15px;
         font-weight: bold;
         text-align: center;
         margin-bottom: 10px;
     }
     .dev-line {
-        font-size: 11px;
+        font-size: 12px;
         text-align: center;
         color: #888;
     }
