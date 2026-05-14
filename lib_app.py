@@ -52,8 +52,8 @@ with st.sidebar:
     * 👨‍🏫 **Supervision:** A lecturer MUST be present in the room at all times.
     * 🔑 **Access:** The lecturer is responsible for collecting the key from the counter and returning it immediately after use.
     * 🧹 **Cleanliness:** Ensure the room is tidy and whiteboards are cleared before leaving.
-    * 🤫 **Silence:** While rooms are sound-proofed, please maintain a reasonable volume. Silence in the library vicinity is a top priority.
-    * 🚫 **No Food:** Only drinks allowed inside the discussion rooms.
+    * 🤫 **Silence:** Please maintain a reasonable volume. Silence in the library vicinity is a top priority.
+    * 🚫 **No Food:** Only Mineral Water bottle allowed inside the room.
     """)
 
     st.divider()
