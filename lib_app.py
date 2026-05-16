@@ -77,7 +77,7 @@ with tab1:
     }
     time_slots = ["07:45 - 08:45", "08:45 - 09:45", "09:45 - 10:10", "10:10 - 11:10", "11:10 - 12:10", "13:20 - 14:20",
                   "14:20 - 15:20", "15:20 - 16:00", "07:45-08:30 (Ramadhan)", "08:35-09:20 (Ramadhan)", "09:25-10:10 (Ramadhan)",
-                  "10:25-11:10 (Ramadhan)", "11:15-12:00 (Ramadhan), "08:00-09:00 (Sch.Hldy), "09:00-10:00 (Sch.Hldy)", "10:00-11:00 (Sch.Hldy)"]
+                  "10:25-11:10 (Ramadhan)", "11:15-12:00 (Ramadhan)", "08:00-09:00 (Sch.Hldy)", "09:00-10:00 (Sch.Hldy)", "10:00-11:00 (Sch.Hldy)"]
 
     with st.form("booking_form", clear_on_submit=True):
         c1, c2 = st.columns(2)
