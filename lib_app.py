@@ -89,7 +89,7 @@ with tab1:
         with c2:
             room_choice = st.selectbox("Select Room", list(room_data.keys()))
             max_cap = room_data[room_choice]["capacity"]
-            st.info(f"📍 Room Capacity: {max_cap} people")
+            #st.info(f"📍 Room Capacity: {max_cap} people")
             slot = st.selectbox("Select Time Slot", time_slots)
             pax = st.number_input("Number of People Coming", min_value=1, value=1)
             purpose = st.text_area("Purpose of Booking", height=68)
