@@ -5,6 +5,7 @@ from datetime import datetime, date
 import random
 import string
 import pandas as pd
+import time  # ⏰ Added to handle the balloon pause!
 
 # --- 1. DATABASE CONNECTION ---
 def connect_to_sheet():
@@ -103,13 +104,16 @@ with tab1:
                     new_entry = [str(datetime.now()), booking_id, name, phone, dept, str(booking_date), room_choice,
                                  slot, pax, purpose, "Confirmed"]
                     sheet.append_row(new_entry)
+                    
+                    # 🎈 The Balloons Celebration Setup
                     st.success(f"✅ Booking Confirmed! ID: {booking_id}")
                     st.balloons()
                     
-                    # 🔄 Instant Sync: Auto-reloads so the schedule update is seen instantly
+                    # ⏰ Pause for 1 second so the balloons actually fly before refreshing!
+                    time.sleep(1.0)
                     st.rerun()
 
-# --- TAB 2: SCHEDULE VIEW (Now with Date Sorting!) ---
+# --- TAB 2: SCHEDULE VIEW ---
 with tab2:
     st.subheader("Upcoming Room Schedule")
     sheet = connect_to_sheet()
@@ -118,10 +122,9 @@ with tab2:
         if data:
             df = pd.DataFrame(data)
             
-            # 📅 Sort Engine: Temporarily parsed to datetime object for clean chronological sorting
+            # 📅 Latest Dates / Current Month always show up top
             if 'Booking Date' in df.columns:
                 df['sort_date'] = pd.to_datetime(df['Booking Date'], errors='coerce')
-                # Sort descending (False) means latest future dates appear at row 1
                 df = df.sort_values(by='sort_date', ascending=False).drop(columns=['sort_date'])
                 
             st.dataframe(df, use_container_width=True)
@@ -146,7 +149,8 @@ with tab3:
                     sheet.delete_rows(row_to_delete)
                     st.success(f"Successfully deleted booking {cancel_id}!")
                     
-                    # 🔄 Instant Sync: Drops database state cleanly right after deletion
+                    # 🔄 Short pause and refresh
+                    time.sleep(0.8)
                     st.rerun()
                 else:
                     st.error("Booking ID not found.")
