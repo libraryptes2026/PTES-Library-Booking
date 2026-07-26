@@ -26,7 +26,7 @@ def generate_booking_id():
 # --- 2. PAGE CONFIG & THEMING INJECTION ---
 st.set_page_config(page_title="PTES Library Booking", layout="wide")
 
-# Custom CSS Styling including your new 14pt Bold Tab wordings requirement
+# Custom CSS Styling with upgraded Tab Wordings Engine
 st.markdown("""
     <style>
     /* 1. Main Background Window Color */
@@ -53,9 +53,11 @@ st.markdown("""
         color: #1E1E1E !important;
     }
     
-    /* 4. Tab Container Control Configurations & Wordings Format Fix */
-    /* Target the text inside Streamlit Tab items to force 14pt and BOLD format */
-    button[data-testid="stBaseButton-tab"] p {
+    /* 4. Upgraded Tab Layout Control (Fixed Selector) */
+    /* Target the base tab container elements directly */
+    [data-baseweb="tab-list"] button [data-testid="stMarkdownContainer"] p,
+    button[data-testid*="stBaseButton-tab"] p,
+    [data-baseweb="tab"] * {
         font-size: 14pt !important;
         font-weight: bold !important;
         color: #000000 !important;
