@@ -47,7 +47,7 @@ st.markdown("""
     
     /* 3. Sidebar Custom Layout Color & Text Contrast */
     [data-testid="stSidebar"] {
-        background-color: #FAF68F !important;
+        background-color: #F8E7FE !important;
     }
     [data-testid="stSidebar"] *, [data-testid="stSidebar"] p, [data-testid="stSidebar"] h1 {
         color: #1E1E1E !important;
@@ -72,7 +72,7 @@ st.markdown("""
     
     /* TAB 1 Panel Area: Reserve a Room */
     div[data-testid="stTabContent"]:nth-of-type(1) {
-        background-color: #E2BBFC !important;
+        background-color: #ECBBFC !important;
         padding: 25px;
         border-radius: 0px 0px 10px 10px;
         border: 2px solid #E2BBFC;
