@@ -5,7 +5,7 @@ from datetime import datetime, date
 import random
 import string
 import pandas as pd
-import time  # ⏰ Added to handle the balloon pause!
+import time  # ⏰ Handle the balloon pause!
 
 # --- 1. DATABASE CONNECTION ---
 def connect_to_sheet():
@@ -26,12 +26,12 @@ def generate_booking_id():
 # --- 2. PAGE CONFIG & THEMING INJECTION ---
 st.set_page_config(page_title="PTES Library Booking", layout="wide")
 
-# Custom CSS Styling to inject your specific color codes safely
+# Custom CSS Styling including your new 14pt Bold Tab wordings requirement
 st.markdown("""
     <style>
     /* 1. Main Background Window Color */
     .stApp, .main, [data-testid="stAppViewContainer"] {
-        background-color: #E7FEF8 !important;
+        background-color: #BC63F8 !important;
     }
     
     /* Global text enhancement for readability over the purple background */
@@ -53,11 +53,12 @@ st.markdown("""
         color: #1E1E1E !important;
     }
     
-    /* 4. Tab Container Control Configurations */
-    /* Ensure the tab navigation buttons have clear visibility */
-    button[data-testid="stMarkdownContainer"] p {
+    /* 4. Tab Container Control Configurations & Wordings Format Fix */
+    /* Target the text inside Streamlit Tab items to force 14pt and BOLD format */
+    button[data-testid="stBaseButton-tab"] p {
+        font-size: 14pt !important;
+        font-weight: bold !important;
         color: #000000 !important;
-        font-weight: bold;
     }
     
     /* Target individual tab contents explicitly by structural order */
@@ -74,7 +75,7 @@ st.markdown("""
         border: 2px solid #E2BBFC;
     }
     div[data-testid="stTabContent"]:nth-of-type(1) * {
-        color: #000000 !important; /* Black text for high visibility on light purple */
+        color: #000000 !important;
     }
     
     /* TAB 2 Panel Area: Booking Schedule */
@@ -85,7 +86,7 @@ st.markdown("""
         border: 2px solid #FEE7FD;
     }
     div[data-testid="stTabContent"]:nth-of-type(2) * {
-        color: #000000 !important; /* Dark text for high contrast on dusty pink */
+        color: #000000 !important;
     }
     
     /* TAB 3 Panel Area: Admin Management */
@@ -96,7 +97,7 @@ st.markdown("""
         border: 2px solid #FCBBDA;
     }
     div[data-testid="stTabContent"]:nth-of-type(3) * {
-        color: #000000 !important; /* Dark text for high contrast on light pink */
+        color: #000000 !important;
     }
     
     /* 5. Footer Layout Container Section */
@@ -256,7 +257,6 @@ with tab3:
 st.warning("⚖️ SCHOOL **HOLIDAYS** : The Library Discussion rooms reservation are between **08:00 to 11:00 only** 👨‍🏫")   
 st.divider()
 
-# Styled wrapper utilizing the specified Minty Green hex code background
 st.markdown("""
     <div class="custom-footer-container">
         <div class="footer-line">
