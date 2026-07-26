@@ -47,7 +47,7 @@ st.markdown("""
     
     /* 3. Sidebar Custom Layout Color & Text Contrast */
     [data-testid="stSidebar"] {
-        background-color: #FAF68F !important;
+        background-color: #D2BBFC !important;
     }
     [data-testid="stSidebar"] *, [data-testid="stSidebar"] p, [data-testid="stSidebar"] h1 {
         color: #1E1E1E !important;
@@ -59,7 +59,7 @@ st.markdown("""
     .stTabs [data-baseweb="tab"] p,
     .stTabs [data-baseweb="tab"] span,
     .stTabs [data-testid="stMarkdownContainer"] p {
-        font-size: 14pt !important;
+        font-size: 13pt !important;
         font-weight: bold !important;
         color: #000000 !important;
     }
