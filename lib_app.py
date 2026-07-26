@@ -47,7 +47,7 @@ st.markdown("""
     
     /* 3. Sidebar Custom Layout Color & Text Contrast */
     [data-testid="stSidebar"] {
-        background-color: #D2BBFC !important;
+        background-color: #FAF68F !important;
     }
     [data-testid="stSidebar"] *, [data-testid="stSidebar"] p, [data-testid="stSidebar"] h1 {
         color: #1E1E1E !important;
@@ -59,7 +59,7 @@ st.markdown("""
     .stTabs [data-baseweb="tab"] p,
     .stTabs [data-baseweb="tab"] span,
     .stTabs [data-testid="stMarkdownContainer"] p {
-        font-size: 13pt !important;
+        font-size: 14pt !important;
         font-weight: bold !important;
         color: #000000 !important;
     }
@@ -256,8 +256,16 @@ with tab3:
                 else:
                     st.error("Booking ID not found.")
 
-# --- SCHOOL POLICY NOTICE & BRANDING ---
-st.warning("⚖️ SCHOOL **HOLIDAYS** : The Library Discussion rooms reservation are between **08:00 to 11:00 only** 👨‍🏫")   
+# --- CUSTOM SCHOOL POLICY NOTICE CONTAINER ---
+# Replaced native st.warning with precise HTML styling mapping background #FAB38F and text #F40B1F
+st.markdown("""
+    <div style="background-color: #FAB38F; padding: 15px; border-radius: 8px; border-left: 6px solid #F40B1F; margin-bottom: 20px;">
+        <p style="color: #F40B1F !important; font-size: 16px; font-weight: bold; margin: 0; text-align: center;">
+            ⚖️ SCHOOL HOLIDAYS : The Library Discussion rooms reservation are between 08:00 to 11:00 only 👨‍🏫
+        </p>
+    </div>
+""", unsafe_allow_html=True)
+
 st.divider()
 
 st.markdown("""
