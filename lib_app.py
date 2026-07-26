@@ -59,7 +59,7 @@ st.markdown("""
     .stTabs [data-baseweb="tab"] p,
     .stTabs [data-baseweb="tab"] span,
     .stTabs [data-testid="stMarkdownContainer"] p {
-        font-size: 14pt !important;
+        font-size: 12pt !important;
         font-weight: bold !important;
         color: #000000 !important;
     }
