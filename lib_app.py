@@ -31,7 +31,7 @@ st.markdown("""
     <style>
     /* 1. Main Background Window Color */
     .stApp, .main, [data-testid="stAppViewContainer"] {
-        background-color: #BC63F8 !important;
+        background-color: #1FF40B !important;
     }
     
     /* Global text enhancement for readability over the purple background */
