@@ -342,10 +342,14 @@ with tab2:
         day_bookings = df_filtered[df_filtered['Booking Date'] == display_date_str]
         if not day_bookings.empty:
             st.success(f"Found {len(day_bookings)} booking(s) matching your view:")
-            # Clean frame view for direct presentation display matrix layout
-            display_cols = ['Booking ID', 'Name', 'Room', 'Time Slot', 'Pax', 'Purpose of Booking', 'Status']
+            
+            # Formatted Columns Request: Name, Booking Date, Time Slot, Room, Pax, Booking ID
+            display_cols = ['Name', 'Booking Date', 'Time Slot', 'Room', 'Pax', 'Booking ID']
             valid_cols = [c for c in display_cols if c in day_bookings.columns]
-            st.dataframe(day_bookings[valid_cols].reset_index(drop=True), use_container_width=True)
+            
+            # Renaming headers internally for clear layout representation if needed
+            renamed_df = day_bookings[valid_cols].copy()
+            st.dataframe(renamed_df.reset_index(drop=True), use_container_width=True)
         else:
             st.info(f"No bookings registered for {formatted_date_display}.")
     else:
