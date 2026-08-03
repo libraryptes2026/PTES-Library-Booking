@@ -343,21 +343,31 @@ with tab2:
         if not day_bookings.empty:
             st.success(f"Found {len(day_bookings)} booking(s) matching your view:")
             
-            # 1. Grab matching database columns in specific request order
-            database_cols = ['Name', 'Booking Date', 'Time Slot', 'Room', 'Pax', 'Booking ID']
-            valid_df = day_bookings[database_cols].copy()
+            # 🛡️ Error-proof columns selection fallback tracker
+            # Maps what you want to what exists in the Google Sheet data headers
+            column_mapping = {
+                'Name': "Lecturer's Name",
+                'Booking Date': "Date Book",
+                'Time Slot': "Time Slot",
+                'Room': "Type of Discussion Room",
+                'Pax': "Number of students",
+                'Booking ID': "Booking ID"
+            }
             
-            # 2. Map existing sheet columns directly to your exact requested header labels
-            valid_df.columns = [
-                "Lecturer's Name", 
-                "Date Book", 
-                "Time Slot", 
-                "Type of Discussion Room", 
-                "Number of students", 
-                "Booking ID"
-            ]
+            # Only use columns that actually exist in the dataframe to avoid key errors
+            available_cols = [col for col in column_mapping.keys() if col in day_bookings.columns]
+            valid_df = day_bookings[available_cols].copy()
             
-            # 3. Present the renamed structured dataframe layout view
+            # Rename headers cleanly
+            rename_dict = {col: column_mapping[col] for col in available_cols}
+            valid_df = valid_df.rename(columns=rename_dict)
+            
+            # Rearrange columns into your exact desired structural sequence order safely
+            final_order = ["Lecturer's Name", "Date Book", "Time Slot", "Type of Discussion Room", "Number of students", "Booking ID"]
+            existing_final_order = [c for c in final_order if c in valid_df.columns]
+            valid_df = valid_df[existing_final_order]
+            
+            # Render dataframe view smoothly
             st.dataframe(valid_df.reset_index(drop=True), use_container_width=True)
         else:
             st.info(f"No bookings registered for {formatted_date_display}.")
