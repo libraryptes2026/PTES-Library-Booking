@@ -343,13 +343,22 @@ with tab2:
         if not day_bookings.empty:
             st.success(f"Found {len(day_bookings)} booking(s) matching your view:")
             
-            # Formatted Columns Request: Name, Booking Date, Time Slot, Room, Pax, Booking ID
-            display_cols = ['Name', 'Booking Date', 'Time Slot', 'Room', 'Pax', 'Booking ID']
-            valid_cols = [c for c in display_cols if c in day_bookings.columns]
+            # 1. Grab matching database columns in specific request order
+            database_cols = ['Name', 'Booking Date', 'Time Slot', 'Room', 'Pax', 'Booking ID']
+            valid_df = day_bookings[database_cols].copy()
             
-            # Renaming headers internally for clear layout representation if needed
-            renamed_df = day_bookings[valid_cols].copy()
-            st.dataframe(renamed_df.reset_index(drop=True), use_container_width=True)
+            # 2. Map existing sheet columns directly to your exact requested header labels
+            valid_df.columns = [
+                "Lecturer's Name", 
+                "Date Book", 
+                "Time Slot", 
+                "Type of Discussion Room", 
+                "Number of students", 
+                "Booking ID"
+            ]
+            
+            # 3. Present the renamed structured dataframe layout view
+            st.dataframe(valid_df.reset_index(drop=True), use_container_width=True)
         else:
             st.info(f"No bookings registered for {formatted_date_display}.")
     else:
