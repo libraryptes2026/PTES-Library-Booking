@@ -8,6 +8,10 @@ import pandas as pd
 import time  # ⏰ Handle the balloon pause!
 import calendar
 
+# --- 0. PORTAL STATUS CONTROL ---
+# Set to True to put down/close the portal. Set to False to reopen normal operations.
+HAZE_CLOSURE = True
+
 # --- 1. DATABASE CONNECTION ---
 def connect_to_sheet():
     SHEET_NAME = "Library_Booking_DB"
@@ -182,8 +186,55 @@ with st.sidebar:
     st.divider()
     st.caption("Developed for PTES Lecturers©2026")
     
-# --- 4. MAIN CONTENT ---
+# --- 4. MAIN HEADER ---
 st.title("📚 Library Discussion Room Booking System")
+
+# --- 5. TEMPORARY PORTAL CLOSURE NOTICE ---
+if HAZE_CLOSURE:
+    st.markdown("""
+        <div style="
+            background-color: #FFF3CD;
+            border: 4px solid #D9534F;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+        ">
+            <h1 style="color: #D9534F !important; margin-bottom: 10px; font-size: 28pt; font-weight: 800;">
+                😷 TEMPORARY PORTAL CLOSURE NOTICE
+            </h1>
+            <h2 style="color: #8A6D3B !important; margin-top: 0px; font-size: 18pt; font-weight: bold;">
+                System Maintenance & Closure Notice
+            </h2>
+            <hr style="border: 1px solid #D9534F; width: 80%; margin: 20px auto;">
+            <p style="color: #222222 !important; font-size: 16pt; font-weight: 600; line-height: 1.6;">
+                The Library Discussion Room Booking System is 
+                <span style="color: #D9534F; text-decoration: underline;">temporarily CLOSED</span> until further notice.
+            </p>
+            <p style="color: #555555 !important; font-size: 13pt; margin-top: 15px; font-style: italic;">
+                Please check back later or contact the library administration for further details. Thank you for your patience!
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
+
+    # Render footer for branding continuity before stopping execution
+    st.markdown("""
+        <div class="custom-footer-container">
+            <div class="footer-line">
+                🟥 Perseverance &nbsp; 🟢 Trustworthiness &nbsp; 🔵 Exemplary &nbsp; 🟡 Self-reliance &nbsp; ⬜
+            </div>
+            <div class="dev-line">
+                "PORTAL DEVELOPER : Miss Hajah Nurul Haziqah binti Haji Nordin (Computer Science Tutor)"
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    # Stops Streamlit from running the rest of the app script
+    st.stop()
+
+# --- 6. MAIN CONTENT TABS ---
 tab1, tab2, tab3 = st.tabs(["📅 Reserve a Room", "📋 Booking Schedule", "🔐 Admin Management"])
 
 # Setup variables
@@ -343,7 +394,6 @@ with tab2:
         if not day_bookings.empty:
             st.success(f"Found {len(day_bookings)} booking(s) matching your view:")
             
-            # 🎯 Fixed to use 'Full Name' directly from your actual Google Sheet column header layout!
             column_mapping = {
                 'Full Name': "Lecturer's Name",
                 'Booking Date': "Date Book",
@@ -352,20 +402,16 @@ with tab2:
                 'Booking ID': "Booking ID"
             }
             
-            # Safeguard data parsing selection sequence
             available_cols = [col for col in column_mapping.keys() if col in day_bookings.columns]
             valid_df = day_bookings[available_cols].copy()
             
-            # Rename components directly into view formatting
             rename_dict = {col: column_mapping[col] for col in available_cols}
             valid_df = valid_df.rename(columns=rename_dict)
             
-            # Enforce the strict chosen order mapping sequence display layout
             final_order = ["Lecturer's Name", "Date Book", "Time Slot", "Type of Discussion Room", "Number of students", "Booking ID"]
             existing_final_order = [c for c in final_order if c in valid_df.columns]
             valid_df = valid_df[existing_final_order]
             
-            # Present preview window clean of numbers list index columns
             st.dataframe(valid_df.reset_index(drop=True), use_container_width=True)
         else:
             st.info(f"No bookings registered for {formatted_date_display}.")
